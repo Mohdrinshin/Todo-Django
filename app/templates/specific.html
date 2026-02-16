@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Specific</title>
+{% endblock  %}
+
+{% block content %}
+
+<table class="table w-50 mx-auto mt-5">
+{% for i in data %}
+<tr class="mt-2">
+    <td><a href="" class="text-black text-decoration-none ">{{i.taskname}}</a></td>
+    <td><a href="" class="text-black text-decoration-none">{{i.due_date}}</a></td>
+    <td><a href="{% url 'update' i.pk %}" class="text-black"><i class="fa-solid fa-pen-to-square"></i></a></td>
+    <td><a href="{% url 'completed' i.pk %}" class="text-black"><i class="fa-solid fa-check-double"></i></a></td>
+    <td><a href="{% url "delete" i.pk %}" class="text-black"><i class="fa-solid fa-trash"></i></a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

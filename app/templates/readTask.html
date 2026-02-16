@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>ReadTask</title>
+{% endblock  %}
+
+{% block content %}
+<h2 class="mx-auto text-center mt-5" >HI <span class="text-danger">{{request.user}}</span></h2>
+<table class="table w-50 mx-auto mt-5">
+{% for i in data %}
+<tr class="mt-2">
+    {% if i.completed_status%}
+    <td><a href="" class="p-3 text-decoration-none text-decoration-line-through text-black">{{i.taskname}}</a></td>
+    {% else %}
+    <td><a href="" class="p-3 text-decoration-none text-black">{{i.taskname}}</a></td>
+    {% endif %}
+    <td class="text-muted">{{i.due_date}}</td>
+    <td><a href="{% url 'update' i.pk %}" class="text-black"><i class="fa-solid fa-pen-to-square"></i></a></td>
+    {% if i.completed_status %}
+    <td><a href="{% url 'completed' i.pk %}" class="text-black"><i class="fa-solid fa-check-double"></i></a></td>
+    {% else %}
+    <td><a href="{% url 'completed' i.pk %}" class="text-black"><i class="fa-solid fa-x"></i></a></td>
+    {% endif %}
+    <td><a href="{% url "delete" i.pk %}" class="text-black"><i class="fa-solid fa-trash"></i></a></td>
+</tr>
+{% endfor %}
+</table>
+<div class="text-center mt-5 text-">
+<a href="{% url "add" %}" class="text-decoration-none text-danger">Add New Task</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Home</title>
+{% endblock  %}
+
+{% block content %}
+<div class="card mx-auto mt-5 w-50 text-center" style="width: 18rem; height : 350px; background-color: #3f333368; ; backdrop-filter: blur; font-clour : #f3eeee">
+  <div class="card-body p-5 ">
+    <h5 class="card-title text-white">Welcome to <span class="text-danger">Prodify</span></h5>
+    <p class="card-text text-white">Manage your daily tasks easily and get things done on time.</p>
+    <a href="{% url "register" %}" class="btn btn-primary">Start Now</a>
+    <a href="#" class="btn btn-primary">Learn More</a>
+  </div>
+</div>
+{% endblock %}
